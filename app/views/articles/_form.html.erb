@@ -5,14 +5,19 @@
   <% end %>
   </ul>
   <p>
-    <%= f.label :author_name, "Your Name"  %>
+    <%= f.label :title  %>
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :body,"Your Comment" %><br />
+    <%= f.label :body %><br />
     <%= f.text_area :body %>
   </p>
   <p>
     <%= f.submit %>
   </p>
+
+  <p>
+  <%= f.label :tag_list %><br />
+  <%= f.text_field :tag_list %>
+</p>
 <% end %>
