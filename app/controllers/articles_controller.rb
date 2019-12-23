@@ -16,20 +16,27 @@ class ArticlesController < ApplicationController
    @article = Article.new
   end
 
+  def create
+     @article = Article.new(article_params)
+     if @article.save
+         flash[:notice] = "Your Article was Created"
+         redirect_to article_path(@article.id) # or @article
+      else
+         render 'new'
+      end
+  end 
   # def create
-  #   @article = Article.new(
-  #     title: params[:article][:title],
-  #     body: params[:article][:body])
-  #   @article.save
-  #   redirect_to article_path(@article)
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     flash[:success] = "You Signed up successfully"
+  #     redirect_to articles_path
+  #   else
+  #     render 'new'
+  #   end
   # end
 
-  def create
-    @article = Article.new(article_params)
-    @article.save
 
-    redirect_to article_path(@article)
-  end
+
 
   def tag_list=(tags_string)
 
